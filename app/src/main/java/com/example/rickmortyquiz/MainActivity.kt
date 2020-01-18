@@ -1,3 +1,6 @@
+//Ben Jokela
+//2020-01-15
+//Android Programming Assignment 1
 package com.example.rickmortyquiz
 
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //initialize variables for components
         var questionView: TextView = findViewById(R.id.question_view)
         var nextButton: ImageButton = findViewById(R.id.next_button)
         var prevButton: ImageButton = findViewById(R.id.prev_button)
@@ -45,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         var falseButton: Button = findViewById(R.id.false_button)
         questionView.setText(questionBank[questionIndex].textResId)
 
+        //set listeners for buttons
         nextButton.setOnClickListener{
             questionIndex = (questionIndex+1)%(questionBank.size)
             questionView.setText(questionBank[questionIndex].textResId)
@@ -55,11 +60,13 @@ class MainActivity : AppCompatActivity() {
             questionView.setText(questionBank[questionIndex].textResId)
         }
         trueButton.setOnClickListener{
-            val toastText = if(questionBank[questionIndex].answer) "You got it!" else "WRONG!"
+            val toastText = if(questionBank[questionIndex].answer) getString(R.string.you_got_it) else getString(
+                            R.string.wrong)
             Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show()
         }
         falseButton.setOnClickListener{
-            val toastText = if(questionBank[questionIndex].answer) "WRONG!" else "You got it!"
+            val toastText = if(questionBank[questionIndex].answer) getString(R.string.wrong) else getString(
+                            R.string.you_got_it)
             Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show()
         }
 

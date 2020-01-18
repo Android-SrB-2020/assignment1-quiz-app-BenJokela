@@ -24,5 +24,7 @@
     <string name="next_button">Next button</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="you_got_it">You got it!</string>
+    <string name="wrong">WRONG!</string>
 
 </resources>
